@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import JsonNode from "@/components/json-node";
-import { Upload, Download, FileJson } from "lucide-react";
+import { Upload, Download, FileJson, Search, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 type JsonValue = string | number | boolean | null | JsonObject | JsonArray;
@@ -27,6 +27,7 @@ export default function JsonTreeViewer() {
   );
   const [error, setError] = useState<string>("");
   const [editedPaths, setEditedPaths] = useState<Set<string>>(new Set());
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const { register, handleSubmit, setValue } = useForm();
 
   const onSubmit = (data: FieldValues) => {
@@ -266,6 +267,27 @@ export default function JsonTreeViewer() {
                   </Button>
                 )}
               </div>
+              {jsonData && (
+                <div className="relative mt-4">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    placeholder="Search keys..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9 pr-9"
+                  />
+                  {searchQuery && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 p-0"
+                      onClick={() => setSearchQuery("")}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  )}
+                </div>
+              )}
               {jsonData && editedPaths.size > 0 && (
                 <div className="flex items-center gap-4 text-xs mt-2 pt-2 border-t">
                   <div className="flex items-center gap-2">
@@ -291,6 +313,8 @@ export default function JsonTreeViewer() {
                     onDelete={deleteValue}
                     editedPaths={editedPaths}
                     originalData={originalJsonData}
+                    searchQuery={searchQuery}
+                    isTopLevel={true}
                   />
                 </div>
               ) : (
