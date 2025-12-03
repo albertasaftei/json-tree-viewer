@@ -1,0 +1,96 @@
+{
+  "project": {
+    "name": "JSON Tree Viewer",
+    "version": "1.0.0",
+    "description": "A powerful tool for viewing and editing JSON data",
+    "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    "features": {
+      "viewing": {
+        "treeView": true,
+        "accordion": true,
+        "prettyPrint": true
+      },
+      "editing": {
+        "inlineEdit": true,
+        "addProperties": true,
+        "deleteNodes": true
+      },
+      "fileOperations": {
+        "import": true,
+        "export": true,
+        "formats": ["json"]
+      }
+    }
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "admin",
+      "active": true,
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "user",
+      "active": true,
+      "preferences": {
+        "theme": "light",
+        "notifications": false,
+        "language": "es"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "role": "editor",
+      "active": false,
+      "preferences": {
+        "theme": "auto",
+        "notifications": true,
+        "language": "fr"
+      }
+    }
+  ],
+  "statistics": {
+    "totalUsers": 3,
+    "activeUsers": 2,
+    "features": {
+      "implemented": 12,
+      "planned": 5,
+      "inProgress": 3
+    },
+    "performance": {
+      "loadTime": 0.8,
+      "responseTime": 0.15,
+      "uptime": 99.9
+    }
+  },
+  "configuration": {
+    "api": {
+      "baseUrl": "https://api.example.com",
+      "version": "v1",
+      "timeout": 5000,
+      "retries": 3
+    },
+    "ui": {
+      "maxTreeDepth": 10,
+      "itemsPerPage": 50,
+      "animationDuration": 200
+    }
+  },
+  "metadata": {
+    "created": "2024-01-15T10:30:00Z",
+    "lastModified": "2024-12-02T14:45:00Z",
+    "author": "Development Team",
+    "license": "MIT"
+  }
+}
